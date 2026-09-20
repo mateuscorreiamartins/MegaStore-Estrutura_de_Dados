@@ -6,11 +6,11 @@ Projetado em Rust para a **MegaStore**, o ConectaStore utiliza **Grafos de Recom
 
 O objetivo do sistema é substituir filtros estáticos por um modelo dinâmico baseado em grafos:
 
-* **Vértices:** Representam os produtos do catálogo.
+**Vértices:** Representam os produtos do catálogo.
   
-* **Arestas:** Representam as conexões de compras conjuntas, interesse ou afinidade entre os itens.
+**Arestas:** Representam as conexões de compras conjuntas, interesse ou afinidade entre os itens.
   
-* **Algoritmo (BFS):** A partir de um produto visualizado ou selecionado pelo cliente, o algoritmo de Busca em Largura percorre as conexões em camadas (níveis de proximidade) para retornar os produtos mais relacionados.
+**Algoritmo (BFS):** A partir de um produto visualizado ou selecionado pelo cliente, o algoritmo de Busca em Largura percorre as conexões em camadas (níveis de proximidade) para retornar os produtos mais relacionados.
 
 ## Estrutura do Repositório
 
