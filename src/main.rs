@@ -44,3 +44,32 @@ fn main() {
     println!("  Tempo de execução do algoritmo: {:?}", duracao);
     println!("===========================================================\n");
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_adicao_e_consulta_produto() {
+        let mut g = GrafoRecomendacao::novo();
+        g.adicionar_produto(Produto::novo(1, "Mouse", "Acessórios", 50.0));
+        assert_eq!(g.quantidade_produtos(), 1);
+        assert_eq!(g.obter_produto(1).unwrap().nome, "Mouse");
+    }
+
+    #[test]
+    fn test_prevencao_duplicatas_bfs() {
+        let mut g = GrafoRecomendacao::novo();
+        g.adicionar_produto(Produto::novo(1, "Item A", "Cat", 10.0));
+        g.adicionar_produto(Produto::novo(2, "Item B", "Cat", 10.0));
+        g.adicionar_produto(Produto::novo(3, "Item C", "Cat", 10.0));
+
+        // Criando um ciclo: 1-2, 2-3, 3-1
+        g.adicionar_conexao(1, 2);
+        g.adicionar_conexao(2, 3);
+        g.adicionar_conexao(3, 1);
+
+        let recs = SistemaRecomendacao::recomendar_bfs(&g, 1, 10);
+        assert_eq!(recs.len(), 2);
+    }
+}
