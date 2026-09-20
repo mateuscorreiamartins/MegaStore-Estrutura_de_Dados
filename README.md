@@ -15,15 +15,25 @@ O objetivo do sistema é substituir filtros estáticos por um modelo dinâmico b
 ## Estrutura do Repositório
 
 MegaStore-Estrutura_de_Dados/
+
 ├── src/
+
 │   ├── main.rs
+
 │   ├── lib.rs
+
 │   ├── product.rs
+
 │   ├── graph.rs
+
 │   └── recommendation.rs
+
 ├── tests/
+
 │   └── integration_tests.rs
+
 ├── Cargo.toml
+
 └── README.md
 
 ## Tecnologias e Estruturas Utilizadas
@@ -45,19 +55,18 @@ Navegue até a pasta raiz do projeto (MegaStore-Estrutura_de_Dados):
 
 cd "MegaStore-Estrutura_de_Dados"
 
-1. Executar a Aplicação Principal
+Executar a Aplicação Principal
 cargo run
 
-2. Executar a Suíte de Testes Automatizados
+Executar a Suíte de Testes Automatizados
 cargo test
 
 ## Exemplo de Uso e Saída no Terminal
 
 Ao executar cargo run, o sistema cadastra o catálogo inicial em memória, estabelece as arestas de conexão e executa a recomendação BFS a partir do Notebook Gamer Pro (ID 1):
 
-===========================================================
-  ConectaStore — Sistema de Recomendacao MegaStore (Rust) 
-===========================================================
+
+ConectaStore — Sistema de Recomendacao MegaStore (Rust) 
 
  Cadastrando produtos no catálogo...
  Construindo as arestas de afinidade no Grafo...
