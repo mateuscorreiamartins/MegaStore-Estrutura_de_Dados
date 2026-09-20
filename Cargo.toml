@@ -1,0 +1,8 @@
+[package]
+name = "megastore"
+version = "0.1.0"
+edition = "2021"
+authors = ["Desenvolvedor ConectaStore"]
+description = "Sistema de Recomendação de Produtos baseado em Grafos para a MegaStore"
+
+[dependencies]
