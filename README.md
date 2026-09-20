@@ -5,8 +5,11 @@ Projetado em Rust para a **MegaStore**, o ConectaStore utiliza **Grafos de Recom
 ## Objetivo e Funcionamento do Sistema
 
 O objetivo do sistema é substituir filtros estáticos por um modelo dinâmico baseado em grafos:
+
 * **Vértices:** Representam os produtos do catálogo.
+  
 * **Arestas:** Representam as conexões de compras conjuntas, interesse ou afinidade entre os itens.
+  
 * **Algoritmo (BFS):** A partir de um produto visualizado ou selecionado pelo cliente, o algoritmo de Busca em Largura percorre as conexões em camadas (níveis de proximidade) para retornar os produtos mais relacionados.
 
 ## Estrutura do Repositório
@@ -26,9 +29,13 @@ MegaStore-Estrutura_de_Dados/
 ## Tecnologias e Estruturas Utilizadas
 
 **Linguagem:** Rust (Edition 2021)
+
 **Cadastro de Produtos:** std::collections::HashMap<u32, Produto> — Acesso e busca direta em tempo constante O(1).
+
 **Grafo de Adjacência:** HashMap<u32, Vec<u32>> — Representação por Lista de Adjacência com consumo de memória O(V + E).
+
 **Navegação em Largura:** std::collections::VecDeque<u32> — Fila FIFO para exploração do grafo por camadas.
+
 **Prevenção de Duplicatas:** std::collections::HashSet<u32> — Conjunto de visitados que impede auto-recomendações, itens duplicados e loops em ciclos do grafo.
 
 Instruções para Compilação e Execução
@@ -71,5 +78,7 @@ Ao executar cargo run, o sistema cadastra o catálogo inicial em memória, estab
 ## Arquitetura da Solução e Desempenho
 
 **Complexidade de Tempo:** O(V + E), onde V é o número de vértices (produtos) e E o número de arestas (conexões) exploradas no percurso.
+
 **Complexidade de Espaço:** O(V + E) para armazenamento da Lista de Adjacência e das estruturas auxiliares do BFS (VecDeque e HashSet).
+
 **Desempenho:** Em testes com grafos em cadeia e cargas elevadas, a resposta do algoritmo BFS esteve na faixa de microssegundos, comprovando a escalabilidade do projeto em Rust sem depender de bancos de dados externos.
