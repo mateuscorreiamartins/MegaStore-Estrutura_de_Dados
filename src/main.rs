@@ -30,5 +30,17 @@ fn main() {
     let limite_k = 4;
     println!("\n[17] Gerando recomendações para 'Notebook Gamer Pro' (ID {}) [Limite K = {}]...", id_busca, limite_k);
 
+    let inicio = Instant::now();
+    let recomendados = SistemaRecomendacao::recomendar_bfs(&sistema, id_busca, limite_k);
+    let duracao = inicio.elapsed();
 
+    println!("\n-----------------------------------------------------------");
+    println!("  PRODUTOS RECOMENDADOS (Busca em Largura - BFS):");
+    println!("-----------------------------------------------------------");
+    for (i, p) in recomendados.iter().enumerate() {
+        println!("  {}. ID {}: {} | Categoria: {} | R$ {:.2}", i + 1, p.id, p.nome, p.categoria, p.preco);
+    }
+    println!("-----------------------------------------------------------");
+    println!("  Tempo de execução do algoritmo: {:?}", duracao);
+    println!("===========================================================\n");
 }
