@@ -1,0 +1,19 @@
+/// Representa a estrutura de dados de um Produto no catálogo da MegaStore.
+#[derive(Debug, Clone, PartialEq)]
+pub struct Produto {
+    pub id: u32,
+    pub nome: String,
+    pub categoria: String,
+    pub preco: f64,
+}
+
+impl Produto {
+    pub fn novo(id: u32, nome: &str, categoria: &str, preco: f64) -> Self {
+        Produto {
+            id,
+            nome: nome.to_string(),
+            categoria: categoria.to_string(),
+            preco,
+        }
+    }
+}
